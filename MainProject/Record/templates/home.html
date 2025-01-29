@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='core.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
 <body>
-    <table border="1">
-        <tr>
-            <td><a href="/liststudents">Show all Students</a></td>
-            <td><a href="/enternew">Add new student</a></td>
-        </tr>
-    </table>
-    <a href="/">Go back to home page</a>
+    <div class="container">
+        <h3>Home</h3>
+        <br>
+
+
+        <table class="table">
+            <tr>
+                <td><a href="/liststudents" class="button-link">Show all Students</a></td>
+                <td><a href="/enternew" class="button-link">Add new student</a></td>
+            </tr>
+        </table>
+
+        <form action="/logout">
+            <button class="button">Logout</button>
+        </form>
+    </div>
 </body>
 </html>

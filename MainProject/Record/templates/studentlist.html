@@ -1,25 +1,36 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='core.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='studentlist.css') }}">
+</head>
 <body>
-    <table border="1">
-        <thead>
-            <tr>
-                <td>Name</td>
-                <td>Address</td>
-                <td>City</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for row in rows %}
-            <tr>
-                <td>{{ row["name"] }}</td>
-                <td>{{ row["addr"] }}</td>
-                <td>{{ row["city"] }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="/">Go back to home page</a>
+    <div class="container">
+        <h3>Student List</h3>
+        <br>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Address</td>
+                    <td>City</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row["name"] }}</td>
+                    <td>{{ row["addr"] }}</td>
+                    <td>{{ row["city"] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="home-link">Go back to home page</a>
+    </div>
 </body>
 </html>

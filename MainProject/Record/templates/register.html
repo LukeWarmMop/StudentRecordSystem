@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='core.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h3>Register</h3>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <form method="post" action="/register">
+            <input type="email" name="email" placeholder="Your Email" autofocus required>
+            <input type="password" name="password" placeholder="Your Password" required>
+            <button class="button">Register</button>
+        </form>
+    </div>
+</body>
+</html>

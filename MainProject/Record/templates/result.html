@@ -1,8 +1,18 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='core.css') }}">
+</head>
 <body>
-    <p>Result of addition: {{ msg }}</p>
-    <h2><a href="\">Go back to home page</a></h2>
+    <div class="container">
+        <h3>Result</h3>
+        <br>
+
+
+        <p>Result of addition: {{ msg }}</p>
+        <h2><a href="/" class="home-link">Go back to home page</a></h2>
+    </div>
 </body>
 </html>

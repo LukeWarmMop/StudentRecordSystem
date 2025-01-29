@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='core.css') }}">
+</head>
 <body>
-    <form action="{{ url_for('addrec') }}" method="POST">
+    <div class="container">
         <h3>Student Information</h3>
+        <br>
 
-        <label for="name">Name</label><br>
-        <input type="text" id="name" name="name" /><br><br>
 
-        <label for="add">Address</label><br>
-        <textarea id="add" name="add"></textarea><br><br>
+        <form action="{{ url_for('addrec') }}" method="POST">
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="name" required /><br><br>
 
-        <label for="city">City</label><br>
-        <input type="text" id="city" name="city" /><br><br>
+            <label for="add">Address</label><br>
+            <textarea id="add" name="add" required></textarea><br><br>
 
-        <input type="submit" value="Submit" /><br>
-    </form>
+            <label for="city">City</label><br>
+            <input type="text" id="city" name="city" required /><br><br>
+
+            <button class="button">Submit</button><br>
+        </form>
+
+        <form action="/">
+            <button class="button">Cancel</button>
+        </form>
+    </div>
 </body>
 </html>

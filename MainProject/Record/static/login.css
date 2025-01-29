@@ -1,0 +1,19 @@
+﻿/* Checkbox alignment */
+.checkbox {
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Prevent text from wrapping */
+    justify-content: flex-end; /* Align items to the right */
+}
+
+    .checkbox label {
+        margin-left: 5px; /* Add margin to the left to separate label from checkbox */
+        font-size: 1em;
+        color: #34495e;
+    }
+
+    /* Ensure the checkbox itself is clickable */
+    .checkbox input[type="checkbox"] {
+        margin: 0;
+        cursor: pointer;
+    }
