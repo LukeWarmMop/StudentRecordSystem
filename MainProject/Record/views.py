@@ -184,3 +184,43 @@ def register_post():
     
     return render_template('home.html')
 
+
+
+@app.route('/search', methods=['GET', 'POST'])
+@login_required
+def search_post():
+    if request.method == 'POST':
+        con = sqlite3.connect("students.db")
+        con.row_factory = sqlite3.Row
+        curs = con.cursor()
+        
+        query_name = request.form.get('student_name')
+        query_address = request.form.get('student_address')
+        query_city = request.form.get('student_city')
+        
+        query = "SELECT * FROM students WHERE 1=1"
+        params = []
+        
+        if query_name:
+            query += " AND name LIKE ?"
+            params.append(f"%{query_name}%")
+        
+        if query_address:
+            query += " AND addr LIKE ?"
+            params.append(f"%{query_address}%")
+        
+        if query_city:
+            query += " AND city LIKE ?"
+            params.append(f"%{query_city}%")
+        
+        curs.execute(query, params)
+        rows = curs.fetchall()
+        con.close()
+        return render_template('search.html', rows=rows)
+    
+    return render_template('search.html', rows=[])
+
+
+
+
+

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Students</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='core.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h3>Search Students</h3>
+        <form method="POST" action="/search">
+            <input type="text" name="student_name" placeholder="Enter student name">
+            <input type="text" name="student_address" placeholder="Enter student address">
+            <input type="text" name="student_city" placeholder="Enter student city">
+            <button type="submit" class="button">Search</button>
+        </form>
+        {% if rows %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row['name'] }}</td>
+                    <td>{{ row['addr'] }}</td>
+                    <td>{{ row['city'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No results found</p>
+        {% endif %}
+        <a href="/" class="home-link">Go back to home page</a>
+    </div>
+</body>
+</html>
